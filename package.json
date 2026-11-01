@@ -1,0 +1,32 @@
+{
+  "name": "pruebas-tdd-bdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest && cucumber-js",
+    "test:unit": "jest",
+    "test:bdd": "cucumber-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinEBM/pruebas-tdd-bdd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KevinEBM/pruebas-tdd-bdd/issues"
+  },
+  "homepage": "https://github.com/KevinEBM/pruebas-tdd-bdd#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^13.3.0",
+    "jest": "^30.5.2"
+  },
+  "jest": {
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
+  }
+}
