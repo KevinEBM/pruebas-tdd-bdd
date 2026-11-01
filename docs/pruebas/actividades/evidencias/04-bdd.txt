@@ -1,0 +1,18 @@
+
+> pruebas-tdd-bdd@1.0.0 test
+> jest --verbose
+
+PASS tests/bdd/cuenta-bloqueada.steps.js
+  Bloqueo de cuenta por intentos fallidos
+    √ Cuenta bloqueada intenta entrar desde otro dispositivo (3 ms)
+
+PASS tests/unit/bloqueo-cuenta.test.js
+  √ CP-05: al 5.º intento fallido la cuenta queda bloqueada 15 minutos (2 ms)
+  √ CP-01: con 0 intentos fallidos y credenciales correctas deja ingresar (1 ms)
+  √ CP-02: con 4 intentos fallidos y credenciales correctas deja ingresar
+
+Test Suites: 2 passed, 2 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        1.359 s
+Ran all test suites.

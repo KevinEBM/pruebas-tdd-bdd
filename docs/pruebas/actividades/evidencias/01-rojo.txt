@@ -1,0 +1,23 @@
+
+> pruebas-tdd-bdd@1.0.0 test
+> jest
+
+FAIL tests/unit/bloqueo-cuenta.test.js
+  ● Test suite failed to run
+
+    Cannot find module '../../src/bloqueoCuenta' from 'tests/unit/bloqueo-cuenta.test.js'
+
+    > 1 | const { registrarIntentoFallido } = require('../../src/bloqueoCuenta');
+        |                                     ^
+      2 |
+      3 | // CP-05: en el 5.º intento fallido la cuenta se bloquea por 15 minutos
+      4 | test('CP-05: al 5.º intento fallido la cuenta queda bloqueada 15 minutos', function () {
+
+      at Resolver._throwModNotFoundError (node_modules/jest-resolve/build/index.js:1031:11)
+      at Object.require (tests/unit/bloqueo-cuenta.test.js:1:37)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.751 s
+Ran all test suites.

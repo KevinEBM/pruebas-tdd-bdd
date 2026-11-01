@@ -1,0 +1,46 @@
+
+> pruebas-tdd-bdd@1.0.0 test:bdd
+> cucumber-js
+
+
+Característica: Bloqueo de cuenta después de 5 intentos fallidos
+
+  Escenario: CP-01 sin intentos fallidos y datos correctos                             # tests\bdd\bloqueo-cuenta.feature:6
+    ✔ Dado una cuenta "pepe@gmail.com" con contraseña "Clave123" y 0 intentos fallidos # tests\bdd\steps\bloqueo-cuenta.steps.js:8
+    ✔ Cuando inicia sesión con correo "pepe@gmail.com" y contraseña "Clave123"         # tests\bdd\steps\bloqueo-cuenta.steps.js:30
+    ✔ Entonces el sistema permite el acceso                                            # tests\bdd\steps\bloqueo-cuenta.steps.js:39
+
+  Escenario: CP-02 con 4 intentos fallidos y datos correctos                           # tests\bdd\bloqueo-cuenta.feature:11
+    ✔ Dado una cuenta "pepe@gmail.com" con contraseña "Clave123" y 4 intentos fallidos # tests\bdd\steps\bloqueo-cuenta.steps.js:8
+    ✔ Cuando inicia sesión con correo "pepe@gmail.com" y contraseña "Clave123"         # tests\bdd\steps\bloqueo-cuenta.steps.js:30
+    ✔ Entonces el sistema permite el acceso                                            # tests\bdd\steps\bloqueo-cuenta.steps.js:39
+    ✔ Y los intentos fallidos vuelven a 0                                              # tests\bdd\steps\bloqueo-cuenta.steps.js:47
+
+  Escenario: CP-03 cuenta bloqueada entra desde otro dispositivo                                      # tests\bdd\bloqueo-cuenta.feature:17
+    ✔ Dado una cuenta "pepe@gmail.com" con contraseña "Clave123" bloqueada por 10 minutos más         # tests\bdd\steps\bloqueo-cuenta.steps.js:19
+    ✔ Cuando inicia sesión con correo "pepe@gmail.com" y contraseña "Clave123" desde otro dispositivo # tests\bdd\steps\bloqueo-cuenta.steps.js:34
+    ✔ Entonces el sistema niega el acceso                                                             # tests\bdd\steps\bloqueo-cuenta.steps.js:43
+    ✔ Y muestra que faltan 10 minutos de bloqueo                                                      # tests\bdd\steps\bloqueo-cuenta.steps.js:51
+
+  Escenario: CP-04 correo sin arroba                                                   # tests\bdd\bloqueo-cuenta.feature:23
+    ✔ Dado una cuenta "pepe@gmail.com" con contraseña "Clave123" y 0 intentos fallidos # tests\bdd\steps\bloqueo-cuenta.steps.js:8
+    ✔ Cuando inicia sesión con correo "Pepegmail.com" y contraseña "Clave123"          # tests\bdd\steps\bloqueo-cuenta.steps.js:30
+    ✔ Entonces el sistema niega el acceso                                              # tests\bdd\steps\bloqueo-cuenta.steps.js:43
+    ✔ Y muestra el mensaje "Parámetro erróneo"                                         # tests\bdd\steps\bloqueo-cuenta.steps.js:56
+
+  Escenario: CP-05 datos incorrectos en el quinto intento                              # tests\bdd\bloqueo-cuenta.feature:29
+    ✔ Dado una cuenta "pepe@gmail.com" con contraseña "Clave123" y 4 intentos fallidos # tests\bdd\steps\bloqueo-cuenta.steps.js:8
+    ✔ Cuando inicia sesión con correo "pepe@gmail.com" y contraseña "ClaveMala"        # tests\bdd\steps\bloqueo-cuenta.steps.js:30
+    ✔ Entonces el sistema niega el acceso                                              # tests\bdd\steps\bloqueo-cuenta.steps.js:43
+    ✔ Y la cuenta queda bloqueada por 15 minutos                                       # tests\bdd\steps\bloqueo-cuenta.steps.js:60
+    ✔ Y muestra el mensaje "Llegaste al máximo de intentos"                            # tests\bdd\steps\bloqueo-cuenta.steps.js:56
+
+  Escenario: CP-06 campos vacíos                                                       # tests\bdd\bloqueo-cuenta.feature:36
+    ✔ Dado una cuenta "pepe@gmail.com" con contraseña "Clave123" y 0 intentos fallidos # tests\bdd\steps\bloqueo-cuenta.steps.js:8
+    ✔ Cuando inicia sesión con correo "" y contraseña ""                               # tests\bdd\steps\bloqueo-cuenta.steps.js:30
+    ✔ Entonces el sistema niega el acceso                                              # tests\bdd\steps\bloqueo-cuenta.steps.js:43
+    ✔ Y marca los campos por rellenar "correo, contrasena"                             # tests\bdd\steps\bloqueo-cuenta.steps.js:65
+
+6 scenarios (6 passed)
+24 steps (24 passed)
+0m 0.032s (0m 0.002s executing your code)

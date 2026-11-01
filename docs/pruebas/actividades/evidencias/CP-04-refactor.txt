@@ -1,0 +1,15 @@
+
+> pruebas-tdd-bdd@1.0.0 test:unit
+> jest --verbose
+
+PASS tests/unit/bloqueo-cuenta.test.js
+  √ CP-05: al 5.º intento fallido la cuenta queda bloqueada 15 minutos (3 ms)
+  √ CP-01: con 0 intentos fallidos y credenciales correctas deja ingresar (1 ms)
+  √ CP-02: con 4 intentos fallidos y credenciales correctas deja ingresar
+  √ CP-04: el correo "Pepegmail.com" no es válido porque no tiene @ (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        1.015 s
+Ran all test suites.
